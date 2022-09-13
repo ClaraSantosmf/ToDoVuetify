@@ -5,6 +5,7 @@ import LoginView from "../views/LoginView.vue";
 import PublicLayout from "@/layouts/PublicLayout.vue";
 import PrivateLayout from "@/layouts/PrivateLayout.vue";
 import TasksListView from "@/views/TasksListView.vue";
+import addTaskView from "@/views/addTaskView.vue";
 
 Vue.use(VueRouter);
 
@@ -36,6 +37,17 @@ const routes = [
         path: "",
         name: "taskList",
         component: TasksListView,
+      },
+    ],
+  },
+  {
+    path: "/adicionar",
+    component: PrivateLayout,
+    children: [
+      {
+        path: "",
+        name: "addTask",
+        component: addTaskView,
       },
     ],
   },
