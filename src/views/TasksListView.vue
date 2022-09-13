@@ -5,7 +5,7 @@
       fab
       dark
       color="indigo"
-     
+      @click="$router.push('/adicionar')"
     >
       <v-icon dark>
         mdi-plus
@@ -18,7 +18,7 @@
         <v-expansion-panel-header class='ml-5'> {{ tarefa.title }} </v-expansion-panel-header>
         <v-expansion-panel-content>
           <v-container>
-            <v-row no-gutters justify="space-between ">
+            <v-row no-gutters>
       <v-col
         cols="12"
         sm="12"
@@ -46,7 +46,6 @@
       >
 
     <v-checkbox
-              v-model="ex4"
               color=deep-purple lighten-4
               value="indigo"
               hide-details
