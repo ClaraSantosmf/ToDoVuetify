@@ -1,0 +1,16 @@
+{
+  "user": [
+    {
+      "id": 1,
+      "name": "json-server",
+      "e-mail": "typicode",
+      "password": "12345"
+    },
+    {
+      "id": 2,
+      "nome": "marilia",
+      "email": "marilia@gmail.com",
+      "senha": "mila12658"
+    }
+  ]
+}
