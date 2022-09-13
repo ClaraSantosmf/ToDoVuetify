@@ -1,47 +1,68 @@
 <template>
-  <v-main class="overflow-hidden mt-4">
-    <v-container>
-      <v-row>
-        <v-col class="pa-1" cols="12" v-for="task in tasks" :key="task.id">
-          <v-card>
-            <v-card-text>
-              <div>#{{ task.id }}</div>
-              <p class="ma-0 pa-0 text-h5 text--primary">{{ task.title }}</p>
-            </v-card-text>
-            <v-card-actions>
-              <v-list-item class="grow">
-                <v-row align="center" justify="end">
-                  <v-btn x-small icon color="grey"
-                    ><v-icon>fas fa-pen fa-xs</v-icon></v-btn
-                  >
-                  <v-btn x-small icon color="grey"
-                    ><v-icon>far fa-trash-alt fa-xs</v-icon></v-btn
-                  >
-                </v-row>
-              </v-list-item>
-            </v-card-actions>
-          </v-card>
-        </v-col>
-      </v-row>
-    </v-container>
-  </v-main>
+  <v-row justify="center" class="pa-md-16 mx-lg-auto">
+
+    <v-expansion-panels inset>
+      <v-expansion-panel v-for="tarefa in tasks" :key="tarefa.id">
+        <v-expansion-panel-header> {{ tarefa.title }} </v-expansion-panel-header>
+        <v-expansion-panel-content>
+          <v-container></v-container>
+          <v-chip
+      class="ma-2"
+      color=deep-purple lighten-4
+      label
+      text-color="white"
+    >
+      <v-icon left>
+        mdi-label
+      </v-icon>
+      {{tarefa.project}}
+    </v-chip>
+
+    <v-checkbox
+              v-model="ex4"
+             
+              color=deep-purple lighten-4
+              value="indigo"
+              hide-details
+              left
+            ></v-checkbox>
+
+         </v-container>
+        </v-expansion-panel-content>
+      </v-expansion-panel>
+    </v-expansion-panels>
+  </v-row>
 </template>
 
 <script>
+import T from "../TasksAPi.js"
+import axios from "axios";
 export default {
-  data: () => {
+  name: "HomeView",
+  data: function () {
     return {
-      tasks: [
-        {
-          id: 1,
-          title: "Task 1",
-        },
-        {
-          id: 2,
-          title: "Task Two",
-        },
-      ],
+      tasks: [],
+      task: {
+        id: "",
+        title: "",
+        dueTo: "",
+        project: "",
+        usuario: "",
+        isShow: false,
+      },
     };
   },
+  methods: {
+    setResults() {
+      this.tasks = response.data;
+    },
+  },
+  created() {
+    const populando = (response) => {
+      this.tasks = response
+    }
+      T.getTasks(populando);
+    },
+
 };
 </script>
