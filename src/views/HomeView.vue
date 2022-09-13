@@ -16,7 +16,7 @@
 </template>
 
 <script>
-
+import T from "../TasksAPi.js"
 import axios from "axios";
 export default {
   name: "HomeView",
@@ -34,21 +34,15 @@ export default {
     };
   },
   methods: {
-    getTasks() {
-      axios
-        .get("http://localhost:3000/tasks/")
-        .then((response) => (this.tasks = response.data))
-        .catch(function (error) {
-          console.log(error);
-        });
-    },
-
     setResults() {
       this.tasks = response.data;
     },
   },
   created() {
-      this.getTasks();
+    const populando = (response) => {
+      this.tasks = response
+    }
+      T.getTasks(populando);
     },
 
 };
