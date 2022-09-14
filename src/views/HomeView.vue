@@ -2,7 +2,7 @@
     
   <v-parallax
     dark
-    src="https://img.freepik.com/free-vector/gradient-liquid-abstract-background_52683-60469.jpg?w=1380&t=st=1663159534~exp=1663160134~hmac=31d98651d02ff3798210e3ce1ef4a4520344abb6db7fb88a81501a8fbe29e608"
+    src="../assets/5238994.jpg"
     height="900"
   >
   <v-row

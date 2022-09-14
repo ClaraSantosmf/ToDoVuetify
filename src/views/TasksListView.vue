@@ -27,29 +27,46 @@
           <v-expansion-panel-header class="ml-5">
             {{ tarefa.title }}
           </v-expansion-panel-header>
+        
+        <v-expansion-panel-content>
+          <v-banner two-line>
+    <v-avatar
+      slot="icon"
+      color="deep-purple accent-4"
+      size="40"
+    >
+      <v-icon
+        icon="mdi-lock"
+        color="white"
+      >
+        mdi-lock
+      </v-icon>
+    </v-avatar>
 
-          <v-expansion-panel-content>
-            <v-banner two-line>
-              <v-avatar slot="icon" color="deep-purple accent-4" size="40">
-                <v-icon icon="mdi-lock" color="white"> mdi-lock </v-icon>
-              </v-avatar>
+   
 
-              <template v-slot:actions>
-                <v-btn text color="deep-purple accent-4"> Action </v-btn>
-                <v-btn
-                  text
-                  color="deep-purple accent-4"
-                  :to="{ name: 'taskUpdate', params: { id: tarefa.id } }"
-                >
-                  Editar
-                </v-btn>
-              </template>
-            </v-banner>
-          </v-expansion-panel-content>
-        </v-expansion-panel>
-      </v-expansion-panels>
-    </v-row>
-  </div>
+    <template v-slot:actions>
+      <v-btn
+        text
+        color="deep-purple accent-4"
+        v-on:click.prevent="deleteTask(tarefa.id)"
+      >
+        Excluir
+      </v-btn>
+      <v-btn
+        text
+        color="deep-purple accent-4"
+        :to="{ name: 'taskUpdate', params: { id: tarefa.id } }"
+      >
+        Editar
+      </v-btn>
+    </template>
+  </v-banner>
+        </v-expansion-panel-content>
+      </v-expansion-panel>
+    </v-expansion-panels>
+  </v-row>
+</div>
 </template>
 
 <script>
@@ -75,13 +92,22 @@ export default {
     setResults() {
       this.tasks = response.data;
     },
+    async deleteTask(id){
+      const req = await axios.delete(`http://localhost:3000/tasks/${id}`)
+      const populando = (response) => {
+      this.tasks = response
+    }
+      T.getTasks(populando);
+  },
   },
   computed: {
     pesquisarTask() {
       return this.tasks.filter((e) =>
         e?.title?.toLowerCase().includes(this.pesquisa.toLowerCase())
       );
-    }, },
+    },
+  },
+
     created() {
       const populando = (response) => {
         this.tasks = response;
