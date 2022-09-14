@@ -81,13 +81,13 @@ export default {
       return this.tasks.filter((e) =>
         e?.title?.toLowerCase().includes(this.pesquisa.toLowerCase())
       );
-    },
+    }, },
     created() {
       const populando = (response) => {
         this.tasks = response;
       };
       T.getTasks(populando);
     },
-  },
-};
+  }
+ 
 </script>
