@@ -106,13 +106,14 @@ export default {
       );
     },
   },
+},
     created() {
       const populando = (response) => {
         this.tasks = response;
       };
       T.getTasks(populando);
     },
-  },
+ 
 }
 
 </script>
