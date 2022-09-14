@@ -1,19 +1,17 @@
 <template>
-
-<div>
-        <v-card
+  <v-card
     class="mx-auto px-16 py-16 mx-5 my-15"
     max-width="344"
     outlined>
   <v-text-field
-            v-model="task.title"
+            v-model="tasks.title"
             label="Add Task"
             outlined
             clearable
           ></v-text-field>
 
           <v-select
-          v-model="task.project"
+          v-model="tasks.project"
           :items="items"
           label="Outlined style"
           outlined
@@ -22,14 +20,14 @@
         ref="menu"
         v-model="menu"
         :close-on-content-click="false"
-        :return-value.sync="task.dueTo"
+        :return-value.sync="tasks.dueTo"
         transition="scale-transition"
         offset-y
         min-width="auto"
       >
         <template v-slot:activator="{ on, attrs }">
           <v-text-field
-            v-model="task.dueTo"
+            v-model="tasks.dueTo"
             label="Picker in menu"
             prepend-icon="mdi-calendar"
             readonly
@@ -38,7 +36,7 @@
           ></v-text-field>
         </template>
         <v-date-picker
-          v-model="task.dueTo"
+          v-model="tasks.dueTo"
           no-title
           scrollable
         >
@@ -53,39 +51,25 @@
           <v-btn
             text
             color="primary"
-            @click="$refs.menu.save(task.dueTo)"
+            @click="$refs.menu.save(tasks.dueTo)"
           >
             OK
           </v-btn>
         </v-date-picker>
       </v-menu>
       <v-btn
-      v-on:click="post()"
+      v-on:click="updateTasks(tasks.id, tasks.title,tasks.project,tasks.dueTo)"
       class="ma-2"
       outlined
       color="indigo"
     >
-      Adicionar tarefa
+     Atualizar tarefa
     </v-btn>
   </v-card>
-
-    <v-main class="overflow-hidden mt-4">
-      <v-container>
-        <v-row>
-          <v-col class="pa-1" cols="12">
-            <v-card>
-              <v-card-text>
-                <div>#{{ taskId }}</div>
-              </v-card-text>
-            </v-card>
-          </v-col>
-        </v-row>
-      </v-container>
-    </v-main>
-</div>
   </template>
   
   <script>
+import axios from "axios";
   export default {
     data: () => {
       return {
@@ -94,11 +78,44 @@
           'Back-end',
           'Dev-ops',
         ],
+     tasks: [],
+      task: {
+        id: "",
+        title: "",
+        dueTo: "",
+        project: "",
+        usuario: "",
+        isShow: false,
+      },
         taskId: 0,
       }
     },
+    methods:{
+updateTasks(id,title,project,dueTo){
+  const taskData = {
+    title: title,
+    project: project,
+    dueTo: dueTo,
+    isShow:false
+  }
+  axios.put(`http://localhost:3000/tasks/${id}`, taskData)
+  .then((response => {
+    console.log('Tarefa salva', response.data)
+  }))
+  this.$router.push({ name: "taskList" });
+},
+
+getUnicaTask() {
+  axios.get(`http://localhost:3000/tasks/${this.taskId}`)
+  .then(response => this.tasks = response.data)
+  .catch(function (error) {
+  console.log(error);
+});
+},
+    },
     created() {
       this.taskId = this.$route.params.id || 0
+      this.getUnicaTask()
     },
   }
   </script>
