@@ -22,20 +22,6 @@
       "id": 14
     },
     {
-      "title": "Amém ",
-      "project": "Front-End",
-      "dueTo": "2022-09-05",
-      "isShow": false,
-      "id": 15
-    },
-    {
-      "title": "Amém ",
-      "project": "Front-End",
-      "dueTo": "2022-09-05",
-      "isShow": false,
-      "id": 16
-    },
-    {
       "id": 17,
       "title": "aprendendi",
       "dueTo": "2022-09-07",
@@ -57,14 +43,6 @@
       "isShow": false
     },
     {
-      "id": 19,
-      "title": "",
-      "dueTo": "",
-      "project": [],
-      "usuario": "",
-      "isShow": false
-    },
-    {
       "title": "mensagem bonita",
       "project": "Front-end",
       "dueTo": "2022-09-28",
@@ -72,34 +50,10 @@
       "id": 20
     },
     {
-      "id": 21,
-      "title": "teste",
-      "dueTo": "2022-09-07",
-      "project": "Front-end",
-      "usuario": "",
-      "isShow": false
-    },
-    {
-      "id": 22,
-      "title": "",
-      "dueTo": "",
-      "project": "Front-end",
-      "usuario": "",
-      "isShow": false
-    },
-    {
       "id": 23,
       "title": "nao tem carro nao bate carro",
       "dueTo": "2022-09-01",
       "project": "Front-end",
-      "usuario": "",
-      "isShow": false
-    },
-    {
-      "id": 24,
-      "title": "caio",
-      "dueTo": "2022-09-07",
-      "project": "Back-end",
       "usuario": "",
       "isShow": false
     }

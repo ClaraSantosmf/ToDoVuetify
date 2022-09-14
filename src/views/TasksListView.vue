@@ -40,8 +40,9 @@
       <v-btn
         text
         color="deep-purple accent-4"
+        v-on:click.prevent="deleteTask(tarefa.id)"
       >
-        Action
+        Excluir
       </v-btn>
       <v-btn
         text
@@ -81,13 +82,20 @@ export default {
     setResults() {
       this.tasks = response.data;
     },
+    async deleteTask(id){
+      const req = await axios.delete(`http://localhost:3000/tasks/${id}`)
+      const populando = (response) => {
+      this.tasks = response
+    }
+      T.getTasks(populando);
   },
+},
   created() {
     const populando = (response) => {
       this.tasks = response
     }
       T.getTasks(populando);
     },
+  }
 
-};
 </script>
