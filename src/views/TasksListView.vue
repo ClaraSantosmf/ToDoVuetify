@@ -15,45 +15,40 @@
 
     <v-expansion-panels inset>
       <v-expansion-panel v-for="tarefa in tasks" :key="tarefa.id">
-        <v-expansion-panel-header class='ml-5'> {{ tarefa.title }} </v-expansion-panel-header>
-        <v-expansion-panel-content>
-          <v-container>
-            <v-row no-gutters>
-      <v-col
-        cols="12"
-        sm="12"
-        md="11"
-        class='ml-n16'
-      >
-          <v-chip
-      class="ma-2"
-      color=deep-purple lighten-4
-      label
-      text-color="white"
-    >
- 
-      <v-icon left>
-        mdi-label
-      </v-icon>
-      {{tarefa.project}}
-    </v-chip>
-  </v-col>
-  <v-col
-        cols="auto"
-        md="1"
-        class='mr-1'
+        <v-expansion-panel-header class='ml-5'> {{ tarefa.title }} {{ tarefa.dueTo }}</v-expansion-panel-header> 
         
+        <v-expansion-panel-content>
+          <v-banner two-line>
+    <v-avatar
+      slot="icon"
+      color="deep-purple accent-4"
+      size="40"
+    >
+      <v-icon
+        icon="mdi-lock"
+        color="white"
       >
+        mdi-lock
+      </v-icon>
+    </v-avatar>
 
-    <v-checkbox
-              color=deep-purple lighten-4
-              value="indigo"
-              hide-details
-              
-            ></v-checkbox>
-          </v-col>
-    </v-row>
-         </v-container>
+   
+
+    <template v-slot:actions>
+      <v-btn
+        text
+        color="deep-purple accent-4"
+      >
+        Action
+      </v-btn>
+      <v-btn
+        text
+        color="deep-purple accent-4"
+      >
+        Action
+      </v-btn>
+    </template>
+  </v-banner>
         </v-expansion-panel-content>
       </v-expansion-panel>
     </v-expansion-panels>
