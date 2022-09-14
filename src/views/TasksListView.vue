@@ -27,46 +27,31 @@
           <v-expansion-panel-header class="ml-5">
             {{ tarefa.title }}
           </v-expansion-panel-header>
-        
-        <v-expansion-panel-content>
-          <v-banner two-line>
-    <v-avatar
-      slot="icon"
-      color="deep-purple accent-4"
-      size="40"
-    >
-      <v-icon
-        icon="mdi-lock"
-        color="white"
-      >
-        mdi-lock
-      </v-icon>
-    </v-avatar>
 
-   
-
-    <template v-slot:actions>
-      <v-btn
-        text
-        color="deep-purple accent-4"
-        v-on:click.prevent="deleteTask(tarefa.id)"
-      >
-        Excluir
-      </v-btn>
-      <v-btn
-        text
-        color="deep-purple accent-4"
-        :to="{ name: 'taskUpdate', params: { id: tarefa.id } }"
-      >
-        Editar
-      </v-btn>
-    </template>
-  </v-banner>
-        </v-expansion-panel-content>
-      </v-expansion-panel>
-    </v-expansion-panels>
-  </v-row>
-</div>
+          <v-expansion-panel-content>
+            <v-banner two-line>
+              <template v-slot:actions>
+                <v-btn
+                  text
+                  color="deep-purple accent-4"
+                  v-on:click.prevent="deleteTask(tarefa.id)"
+                >
+                  Excluir
+                </v-btn>
+                <v-btn
+                  text
+                  color="deep-purple accent-4"
+                  :to="{ name: 'taskUpdate', params: { id: tarefa.id } }"
+                >
+                  Editar
+                </v-btn>
+              </template>
+            </v-banner>
+          </v-expansion-panel-content>
+        </v-expansion-panel>
+      </v-expansion-panels>
+    </v-row>
+  </div>
 </template>
 
 <script>
@@ -92,13 +77,13 @@ export default {
     setResults() {
       this.tasks = response.data;
     },
-    async deleteTask(id){
-      const req = await axios.delete(`http://localhost:3000/tasks/${id}`)
+    async deleteTask(id) {
+      const req = await axios.delete(`http://localhost:3000/tasks/${id}`);
       const populando = (response) => {
-      this.tasks = response
-    }
+        this.tasks = response;
+      };
       T.getTasks(populando);
-  },
+    },
   },
   computed: {
     pesquisarTask() {
@@ -108,12 +93,11 @@ export default {
     },
   },
 
-    created() {
-      const populando = (response) => {
-        this.tasks = response;
-      };
-      T.getTasks(populando);
-    },
-  }
- 
+  created() {
+    const populando = (response) => {
+      this.tasks = response;
+    };
+    T.getTasks(populando);
+  },
+};
 </script>
