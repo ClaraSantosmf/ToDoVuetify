@@ -99,6 +99,7 @@ export default {
     }
       T.getTasks(populando);
   },
+  },
   computed: {
     pesquisarTask() {
       return this.tasks.filter((e) =>
@@ -106,14 +107,12 @@ export default {
       );
     },
   },
-},
+
     created() {
       const populando = (response) => {
         this.tasks = response;
       };
       T.getTasks(populando);
     },
- 
-}
-
+  }
 </script>
