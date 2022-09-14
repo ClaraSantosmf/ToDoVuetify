@@ -6,6 +6,7 @@ import PublicLayout from "@/layouts/PublicLayout.vue";
 import PrivateLayout from "@/layouts/PrivateLayout.vue";
 import TasksListView from "@/views/TasksListView.vue";
 import addTaskView from "@/views/addTaskView.vue";
+import updateView from '@/views/updateView.vue'
 
 Vue.use(VueRouter);
 
@@ -18,17 +19,26 @@ const routes = [
   {
     path: "/about",
     name: "about",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/AboutView.vue"),
   },
+  
   {
     path: "/login",
     name: "login",
     component: LoginView,
   },
+  {
+    path: '/update',
+    component: PrivateLayout,
+    children: [
+      {
+        path: ':id',
+        name: 'taskUpdate',
+        component: updateView,
+      },
+    ],
+    },
   {
     path: "/tasks",
     component: PrivateLayout,
