@@ -10,13 +10,12 @@
             clearable
           ></v-text-field>
 
-          <v-combobox
+          <v-select
           v-model="task.project"
           :items="items"
-          label="Projeto"
-          multiple
-          chips
-        > </v-combobox>
+          label="Outlined style"
+          outlined
+        ></v-select>
         <v-menu
         ref="menu"
         v-model="menu"
@@ -83,7 +82,7 @@ export default {
       "id": '',
       "title":'',
       "dueTo": '',
-      "project": [],
+      "project": '',
       "usuario": '',
       isShow:false,
     },
