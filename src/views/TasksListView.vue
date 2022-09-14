@@ -15,7 +15,9 @@
 
     <v-expansion-panels inset>
       <v-expansion-panel v-for="tarefa in tasks" :key="tarefa.id">
-        <v-expansion-panel-header class='ml-5'> {{ tarefa.title }} {{ tarefa.dueTo }}</v-expansion-panel-header> 
+        <v-expansion-panel-header class='ml-5'> {{ tarefa.title }}
+
+        </v-expansion-panel-header> 
         
         <v-expansion-panel-content>
           <v-banner two-line>
@@ -44,8 +46,9 @@
       <v-btn
         text
         color="deep-purple accent-4"
+        :to="{ name: 'taskUpdate', params: { id: tarefa.id } }"
       >
-        Action
+        Editar
       </v-btn>
     </template>
   </v-banner>
