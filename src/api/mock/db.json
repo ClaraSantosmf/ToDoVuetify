@@ -15,32 +15,20 @@
   ],
   "tasks": [
     {
-      "id": 17,
-      "title": "aprendendi",
-      "dueTo": "2022-09-07",
-      "project": [
-        "Back-end",
-        "Dev-ops"
-      ],
-      "usuario": "",
-      "isShow": false
-    },
-    {
-      "id": 18,
-      "title": "router ",
-      "dueTo": "2022-09-13",
-      "project": [
-        "Back-end"
-      ],
-      "usuario": "",
-      "isShow": false
-    },
-    {
-      "title": "mensagem bonita",
+      "title": "Amém ",
       "project": "Front-end",
-      "dueTo": "2022-09-28",
+      "dueTo": "2022-09-05",
       "isShow": false,
-      "id": 20
+      "id": 16,
+      "estado": "Fazendo"
+    },
+    {
+      "id": 20,
+      "title": "gyu6tu",
+      "dueTo": "",
+      "project": "Front-end",
+      "usuario": "",
+      "isShow": false
     },
     {
       "id": 23,
@@ -48,6 +36,51 @@
       "dueTo": "2022-09-01",
       "project": "Front-end",
       "usuario": "",
+      "isShow": false
+    },
+    {
+      "title": "Agora tem pendente",
+      "project": "Front-end",
+      "dueTo": "2022-09-15",
+      "isShow": false,
+      "id": 25
+    },
+    {
+      "title": "Será que vai como pendete?",
+      "project": "Front-end",
+      "dueTo": "2022-09-15",
+      "isShow": false,
+      "id": 26
+    },
+    {
+      "title": "Será pendente?",
+      "project": "Dev-ops",
+      "dueTo": "2022-09-15",
+      "isShow": false,
+      "id": 27
+    },
+    {
+      "title": "SUMIRÁ",
+      "project": "Back-end",
+      "dueTo": "2022-09-15",
+      "isShow": false,
+      "id": 28
+    },
+    {
+      "title": "vfdvdf",
+      "project": "Back-end",
+      "dueTo": "2022-09-15",
+      "estado": "Fazendo",
+      "isShow": false,
+      "id": 29
+    },
+    {
+      "id": 30,
+      "title": "O DE TESTe",
+      "dueTo": "",
+      "project": "Back-end",
+      "usuario": "",
+      "estado": "Pendente",
       "isShow": false
     }
   ]
