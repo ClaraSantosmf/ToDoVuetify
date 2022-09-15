@@ -69,6 +69,7 @@ export default {
       TaskApi.login(this.username, this.password)
         .then((resp) => {
           console.log("login ok", resp);
+          this.$router.push({ name: "taskList" });
         })
         .catch((error) => {
           console.log("login falhou", error);
