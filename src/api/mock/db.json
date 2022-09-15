@@ -11,6 +11,30 @@
       "nome": "marilia",
       "email": "marilia@gmail.com",
       "senha": "mila12658"
+    },
+    {
+      "id": 3,
+      "nome": "",
+      "email": "",
+      "senha": ""
+    },
+    {
+      "id": 4,
+      "nome": "Clara",
+      "email": "clarasantosmf@gmail.com",
+      "senha": "Senha"
+    },
+    {
+      "id": 5,
+      "nome": "Erlr",
+      "email": "erle@buser",
+      "senha": "senha"
+    },
+    {
+      "id": 6,
+      "nome": "mari",
+      "email": "mari@",
+      "senha": "senha"
     }
   ],
   "tasks": [
