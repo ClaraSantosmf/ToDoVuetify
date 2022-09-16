@@ -47,14 +47,6 @@
       "estado": "Fazendo"
     },
     {
-      "id": 20,
-      "title": "gyu6tu",
-      "dueTo": "",
-      "project": "Front-end",
-      "usuario": "",
-      "isShow": false
-    },
-    {
       "id": 23,
       "title": "nao tem carro nao bate carro",
       "dueTo": "2022-09-01",
@@ -84,13 +76,6 @@
       "id": 27
     },
     {
-      "title": "SUMIRÁ",
-      "project": "Back-end",
-      "dueTo": "2022-09-15",
-      "isShow": false,
-      "id": 28
-    },
-    {
       "title": "vfdvdf",
       "project": "Back-end",
       "dueTo": "2022-09-15",
@@ -107,5 +92,17 @@
       "estado": "Pendente",
       "isShow": false
     }
+  ],
+  "projetos": [
+    {
+      "title": "Front-end"
+    },
+    {
+      "title": "Back-end"
+    },
+    {
+      "title": "Dados"
+    }
   ]
+
 }
