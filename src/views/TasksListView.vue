@@ -16,82 +16,75 @@
       class="mx-2 ml-15 mt-8"
       fab
       dark
-      color="indigo"
+      color="deep-purple accent-4"
       @click="$router.push('/adicionar')"
     >
       <v-icon dark> mdi-plus </v-icon>
     </v-btn>
     <v-row justify="center" class="pa-md-16 mx-lg-auto">
-    
       <v-expansion-panels inset>
         <v-expansion-panel v-for="tarefa in pesquisarTask" :key="tarefa.id">
           <v-expansion-panel-header class="ml-5">
             <div class="justify-space-around">
-            <p>{{ tarefa.title }}</p>    
-           <p>Data de entrega: {{ tarefa.dueTo }} </p>
-          </div>
+              <p>{{ tarefa.title }}</p>
+              <p>Data de entrega: {{ tarefa.dueTo }}</p>
+            </div>
           </v-expansion-panel-header>
 
           <v-expansion-panel-content>
             <v-banner two-line>
               <div class="align-start">
-                    <v-chip
-                      class="ma-2"
-                      color="deep-purple accent-4"
-                      label
-                      text-color="white"
-                    >
-                      <v-icon left>
-                        mdi-label
-                      </v-icon>
-                      {{ tarefa.project }}
-                    </v-chip>
-                
-                </div>
-
-                <div class="text-center">
-    <v-dialog
-      v-model="dialog"
-      width="500"
-    >
-      <template v-slot:activator="{ on, attrs }">
-        <v-btn
-          color="deep-purple accent-4"
-          dark
-          v-bind="attrs"
-          v-on="on"
-        >
-          Excluir
-        </v-btn>
-
-        <v-btn
-                  text
+                <v-chip
+                  class="ma-2"
                   color="deep-purple accent-4"
-                  :to="{ name: 'taskUpdate', params: { id: tarefa.id } }"
+                  label
+                  text-color="white"
                 >
-                  Editar
-                </v-btn>
-      </template>
+                  <v-icon left> mdi-label </v-icon>
+                  {{ tarefa.project }}
+                </v-chip>
+              </div>
 
-      <v-card>
-        <v-card-title class="text-h5 grey lighten-2">
-         Excluir task?
-        </v-card-title>
-        <v-divider></v-divider>
+              <div class="text-center">
+                <v-dialog v-model="dialog" width="500">
+                  <template v-slot:activator="{ on, attrs }">
+                    <v-btn
+                      color="deep-purple accent-4"
+                      dark
+                      v-bind="attrs"
+                      v-on="on"
+                    >
+                      Excluir
+                    </v-btn>
 
-        <v-card-actions>
-          <v-spacer></v-spacer>
-          <v-btn
-            color="primary"
-            text
-            v-on:click.prevent="deleteTask(tarefa.id)">
-           Sim
-          </v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-dialog>
-  </div>
-              
+                    <v-btn
+                      text
+                      color="deep-purple accent-4"
+                      :to="{ name: 'taskUpdate', params: { id: tarefa.id } }"
+                    >
+                      Editar
+                    </v-btn>
+                  </template>
+
+                  <v-card>
+                    <v-card-title class="text-h5 grey lighten-2">
+                      Excluir task?
+                    </v-card-title>
+                    <v-divider></v-divider>
+
+                    <v-card-actions>
+                      <v-spacer></v-spacer>
+                      <v-btn
+                        color="primary"
+                        text
+                        v-on:click.prevent="deleteTask(tarefa.id)"
+                      >
+                        Sim
+                      </v-btn>
+                    </v-card-actions>
+                  </v-card>
+                </v-dialog>
+              </div>
             </v-banner>
           </v-expansion-panel-content>
         </v-expansion-panel>
@@ -101,10 +94,10 @@
 </template>
 
 <script>
-import T from "../TasksAPi.js";
+import ApiTasks from "@/api/tasks.api.js";
 import axios from "axios";
+
 export default {
-  name: "HomeView",
   data: function () {
     return {
       dialog: false,
@@ -130,7 +123,7 @@ export default {
         this.tasks = response;
       };
       T.getTasks(populando);
-      dialog = false
+      dialog = false;
     },
   },
   computed: {
@@ -142,10 +135,10 @@ export default {
   },
 
   created() {
-    const populando = (response) => {
-      this.tasks = response;
-    };
-    T.getTasks(populando);
+    ApiTasks.getTasks().then((data) => {
+      console.log(data);
+      this.tasks = data;
+    });
   },
 };
 </script>
