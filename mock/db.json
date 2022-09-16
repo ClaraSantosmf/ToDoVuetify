@@ -95,14 +95,28 @@
   ],
   "projetos": [
     {
-      "title": "Front-end"
+      "title": "Front-end",
+      "id": 1
     },
     {
-      "title": "Back-end"
+      "title": "Back-end",
+      "id": 2
     },
     {
-      "title": "Dados"
+      "title": "Dados",
+      "id": 3
+    },
+    {
+      "devops": "",
+      "id": 4
+    },
+    {
+      "title": "devops",
+      "id": 5
+    },
+    {
+      "title": "pessoal",
+      "id": 6
     }
   ]
-
 }

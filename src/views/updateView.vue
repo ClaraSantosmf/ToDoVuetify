@@ -46,9 +46,9 @@
         <v-btn text color="primary" @click="$refs.menu.save(tasks.dueTo)">
           OK
         </v-btn>
-      </v-date-picker>
-    </v-menu>
-    <v-btn v-on:click="updateTasks(task)" class="ma-2" outlined color="indigo">
+      </v-date-picker> </v-menu
+    >v-on:click="updateTasks(task)"
+    <v-btn class="ma-2" outlined color="deep-purple accent-4">
       Atualizar tarefa
     </v-btn>
   </v-card>

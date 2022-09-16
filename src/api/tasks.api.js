@@ -1,10 +1,11 @@
-import axios from "axios";
-axios.defaults.baseURL = "http://localhost:3000";
+import api from "@/api";
 
 export default {
-  getTasks: (callback) => {
-    axios.get("http://localhost:3000/tasks/").then((response) => {
-      callback(response.data);
+  getTasks: () => {
+    return new Promise((resolve, reject) => {
+      api.get("http://localhost:3000/tasks").then((response) => {
+        resolve(response.data);
+      });
     });
   },
   petTasks: (task) => {
