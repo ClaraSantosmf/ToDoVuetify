@@ -6,7 +6,7 @@ import PublicLayout from "@/layouts/PublicLayout.vue";
 import PrivateLayout from "@/layouts/PrivateLayout.vue";
 import TasksListView from "@/views/TasksListView.vue";
 import addTaskView from "@/views/addTaskView.vue";
-import updateView from '@/views/updateView.vue'
+import updateView from "@/views/updateView.vue";
 
 Vue.use(VueRouter);
 
@@ -22,23 +22,22 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/AboutView.vue"),
   },
-  
   {
     path: "/login",
     name: "login",
     component: LoginView,
   },
   {
-    path: '/update',
+    path: "/update",
     component: PrivateLayout,
     children: [
       {
-        path: ':id',
-        name: 'taskUpdate',
+        path: ":id",
+        name: "taskUpdate",
         component: updateView,
       },
     ],
-    },
+  },
   {
     path: "/tasks",
     component: PrivateLayout,
