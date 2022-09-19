@@ -1,20 +1,23 @@
 import api from "@/api";
+import axios from "axios";
+
+//axios.defaults.baseURL = 'http://localhost:3000'
 
 export default {
   getTasks: () => {
     return new Promise((resolve, reject) => {
-      api.get("http://localhost:3000/tasks").then((response) => {
+      api.get("api/tasks/").then((response) => {
         resolve(response.data);
       });
     });
   },
   petTasks: (task) => {
-    axios.put(`http://localhost:3000/tasks/${task.id}`, task);
+    axios.put(`/tasks/${task.id}`, task);
   },
   postTasks: (task) => {
-    axios.post("http://localhost:3000/tasks/", task);
+    axios.post("/tasks/", task);
   },
   deleteTasks: (task) => {
-    axios.delete(`http://localhost:3000/tasks/${task.id}`);
+    axios.delete(`/tasks/${task.id}`);
   },
 };

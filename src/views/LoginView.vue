@@ -61,7 +61,7 @@ export default {
   methods: {
     async cadastrar() {
       const user = this.usuario;
-      await axios.post("http://localhost:3000/user", user);
+      await axios.post("http://localhost:3001/users", user);
       this.$router.push({ name: "home" });
     },
     login() {
@@ -69,6 +69,9 @@ export default {
       TaskApi.login(this.username, this.password)
         .then((resp) => {
           console.log("login ok", resp);
+
+          localStorage.setItem("userId", resp.id);
+          localStorage.setItem("userToken", resp.token);
           this.$router.push({ name: "taskList" });
         })
         .catch((error) => {
