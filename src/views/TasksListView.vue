@@ -114,8 +114,12 @@ export default {
     };
   },
   methods: {
+
     setResults() {
       this.tasks = response.data;
+     
+      
+      
     },
     async deleteTask(id) {
       const req = await axios.delete(`http://localhost:3000/tasks/${id}`);
@@ -131,14 +135,15 @@ export default {
       return this.tasks.filter((e) =>
         e?.title?.toLowerCase().includes(this.pesquisa.toLowerCase())
       );
+     
     },
   },
 
   created() {
     ApiTasks.getTasks().then((data) => {
-      console.log(data);
       this.tasks = data;
-    });
+    })
+    
   },
 };
 </script>

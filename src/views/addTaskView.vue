@@ -9,8 +9,8 @@
 
     <v-select
       v-model="task.project"
-      :items="projetosItems"
-      label="Outlined style"
+      :items="items"
+      label="Projetos"
       outlined
     ></v-select>
 
@@ -82,8 +82,8 @@ export default {
   data() {
     return {
       dialog: false,
-      addProject: { title: "" },
-      items: ["Foo", "Bar", "Fizz", "Buzz"],
+      addProject: { title: "Front-End", title:"Back-end", title:"Dados" },
+      items: ["Front-End", "Back-End", "Dados"],
       projetos: [],
       menu: [],
       task: {

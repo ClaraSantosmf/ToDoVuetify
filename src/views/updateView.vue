@@ -10,7 +10,7 @@
     <v-select
       v-model="tasks.project"
       :items="items"
-      label="Outlined style"
+      label="Projeto"
       outlined
     ></v-select>
 
