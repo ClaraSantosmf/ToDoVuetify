@@ -69,9 +69,7 @@ export default {
       TaskApi.login(this.username, this.password)
         .then((resp) => {
           console.log("login ok", resp);
-
-          localStorage.setItem("userId", resp.id);
-          localStorage.setItem("userToken", resp.token);
+          this.saveLoggedUser(resp);
           this.$router.push({ name: "taskList" });
         })
         .catch((error) => {
@@ -81,6 +79,11 @@ export default {
         .finally(() => {
           this.loading = false;
         });
+    },
+    saveLoggedUser(user) {
+      window.localStorage.setItem("user", JSON.stringify(user));
+      window.localStorage.setItem("loggedUser", user.id);
+      window.localStorage.setItem("loggedUserToken", user.token);
     },
   },
 };

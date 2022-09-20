@@ -4,7 +4,7 @@
 
     <v-toolbar-title>Vuetodo</v-toolbar-title>
 
-    <v-spacer></v-spacer>
+    <v-spacer>{{ username }}</v-spacer>
 
     <v-btn icon>
       <v-icon>fa-solid fa-magnifying-glass</v-icon>
@@ -24,6 +24,7 @@
 import settings from "@/settings";
 
 export default {
+  props: ["username"],
   data: () => ({
     version: settings.version,
     nodeEnv: settings.nodeEnv,

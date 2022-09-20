@@ -1,13 +1,14 @@
 import axios from "axios";
 import settings from "@/settings";
+import router from "@/router";
 
 const api = axios.create({
   baseURL: settings.apiBaseUrl,
 });
 
-function beforeRequest(config) {
-  const loggedUser = window.localStorage.getItem("userId");
-  const loggedUserToken = window.localStorage.getItem("userToken");
+export function beforeRequest(config) {
+  const loggedUser = window.localStorage.getItem("loggedUser");
+  const loggedUserToken = window.localStorage.getItem("loggedUserToken");
 
   if (loggedUser) {
     config.headers["X-Authorization-UserId"] = `${loggedUser}`;
@@ -16,13 +17,23 @@ function beforeRequest(config) {
   return config;
 }
 
-function requestError(error) {
+export function requestError(error) {
   return Promise.reject(error);
 }
 
 api.interceptors.request.use(beforeRequest, requestError);
 
-//Configuração que injera o retorno da função beforeRequest e requestError em qualquer solicitação HTTP que houver no código.
-// beforeRequest insere no localstorage as credenciais necessárias para autenitação.
+export function getSuccessResponse(response) {
+  return response;
+}
+
+export function getResponseError(error) {
+  if (error.response && error.response.status == 401) {
+    router.push({ name: "login" });
+  }
+  return Promise.reject(error);
+}
+
+api.interceptors.response.use(getSuccessResponse, getResponseError);
 
 export default api;
